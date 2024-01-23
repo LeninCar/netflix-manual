@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes example {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-down {
+  animation-name: example;
+  animation-duration: 0.8s;
+}
+
+@keyframes example-right {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-right {
+  animation-name: example-right;
+  animation-duration: 10s;
+}
+
+@keyframes example-left {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-left {
+  animation-name: example-left;
+  animation-duration: 10s;
+}
+
+@keyframes example-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-up {
+  animation-name: example-up;
+  animation-duration: 0.8s;
+}
+
+.SiderbarScroll::-webkit-scrollbar {
+  width: 7px;
+  background: #1e293b;
+}
+
+.SiderbarScroll::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 5px;
+}
+
+.barScroll::-webkit-scrollbar {
+  height: 7px;
+}
+
+.barScroll::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 5px;
+}
+
+.childbarscroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.childbarscroll::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 5px;
+}
