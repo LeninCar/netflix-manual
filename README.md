@@ -18,7 +18,7 @@ Este proyecto es un clon de la interfaz de usuario de Netflix desarrollado utili
 
 ## Instalación
 
-1. Clona el repositorio: `git clone https://github.com/tuusuario/netflix-clone.git`
+1. Clona el repositorio: `git clone https://github.com/diegoseg15/netflix-clone.git`
 2. Ingresa al directorio: `cd netflix-clone`
 3. Instala las dependencias: `npm install`
 
