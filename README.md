@@ -1,6 +1,6 @@
 # Netflix Clone
 
-![Netflix Clone](screenshot.png)
+![Netflix Clone](https://github.com/diegoseg15/netflix-clone/blob/main/src/assets/screenshot.png?raw=true)
 
 Este proyecto es un clon de la interfaz de usuario de Netflix desarrollado utilizando React JS y Tailwind CSS.
 
