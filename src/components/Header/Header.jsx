@@ -3,13 +3,13 @@ import Logo from "../../assets/logo.png";
 
 export function Header() {
   return (
-    <section className="flex lg:px-32 justify-between items-center">
-      <img className="h-20" src={Logo} alt="" />
-      <section className="">
+    <div className="flex lg:px-32 justify-between items-center">
+      <img className="lg:h-20 h-16" src={Logo} alt="" />
+      <div className="">
         <div
           role="img"
           aria-hidden="true"
-          className="absolute text-white z-10 top-8 ml-3"
+          className="absolute text-white z-10 md:top-8 top-6 ml-3"
         >
           <svg
             width="16"
@@ -29,14 +29,14 @@ export function Header() {
             ></path>
           </svg>
         </div>
-        <select className="bg-stone-900 opacity-80 mr-3 py-1 px-5 border-2 border-stone-400 rounded-md text-white pl-9">
+        <select className="bg-stone-900 opacity-80 mr-3 py-1 md:px-5 border-2 border-stone-400 rounded-md md:text-white md:pl-9 text-transparent ">
           <option>Español</option>
           <option>English</option>
         </select>
-        <button className="bg-primary opacity-80 mr-3 py-1 px-5 rounded-md text-white">
+        <button className="bg-primary opacity-80 mr-3 py-1 md:px-5 px-3 rounded-md text-white">
           Iniciar Sesión
         </button>
-      </section>
-    </section>
+      </div>
+    </div>
   );
 }
