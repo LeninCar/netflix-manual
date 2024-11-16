@@ -8,6 +8,7 @@ import { Navigation, Pagination } from "swiper/modules"; // Módulos adicionales
 
 import Perfiles from "../secciones/Perfiles/Perfiles";
 import MiCuenta from "../secciones/MiCuenta/MiCuenta";
+import Pagos from "../secciones/Pagos/Pagos";
 
 export function Inicio() {
   const [selectedOption, setSelectedOption] = useState("inicio");
@@ -20,6 +21,8 @@ export function Inicio() {
       return <MiCuenta />; 
       case "Gestiona tus perfiles":
         return <Perfiles />; 
+      case "Pagos":
+        return <Pagos />;
       default:
         return <div>Contenido no disponible.</div>;
     }
