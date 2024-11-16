@@ -1,5 +1,6 @@
 import React from "react";
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer"; // Importa el componente Footer
 
 export default function ClientLayouts({ children }) {
   return (
@@ -7,8 +8,11 @@ export default function ClientLayouts({ children }) {
       <header className="absolute z-10 w-screen overflow-x-hidden">
         <Header />
       </header>
-      <div className="overflow-x-hidden z-20">{children}</div>
-      <footer className="w-screen overflow-x-hidden">footer</footer>
+      <div className="overflow-x-hidden z-20 flex-1">{children}</div>
+      {/* Agregar el Footer aquí */}
+      <footer className="w-full overflow-x-hidden mt-auto">
+        <Footer />
+      </footer>
     </div>
   );
 }

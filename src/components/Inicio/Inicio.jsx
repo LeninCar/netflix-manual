@@ -1,147 +1,173 @@
-import React from "react";
+import React, { useState } from "react";
 import tv from "../../assets/tv.png";
 
 export function Inicio() {
+  const [selectedOption, setSelectedOption] = useState("inicio");
+  const [selectedSubsection, setSelectedSubsection] = useState(null); // Nueva variable para subsecciones
+  const options = ["inicio", "registro", "suscripciones", "pagos"];
+
+  const renderContent = () => {
+    switch (selectedOption) {
+      case "inicio":
+        return (
+          <div>
+            <h3 className="text-4xl font-bold">Bienvenido</h3>
+            <p className="mt-4">Selecciona una opción para explorar.</p>
+            {/* Subsecciones de "Inicio" */}
+            <ul className="space-y-2 mt-4">
+              <li
+                className={`cursor-pointer hover:text-gray-400 ${selectedSubsection === "subinicio1" ? "text-primary" : ""}`}
+                onClick={() => setSelectedSubsection("subinicio1")}
+              >
+                Introducción
+              </li>
+              <li
+                className={`cursor-pointer hover:text-gray-400 ${selectedSubsection === "subinicio2" ? "text-primary" : ""}`}
+                onClick={() => setSelectedSubsection("subinicio2")}
+              >
+                Características
+              </li>
+            </ul>
+            {selectedSubsection === "subinicio1" && (
+              <div className="mt-4">
+                <p>Bienvenido a la plataforma, explora nuestras opciones.</p>
+              </div>
+            )}
+            {selectedSubsection === "subinicio2" && (
+              <div className="mt-4">
+                <p>Aquí encontrarás todas las características del servicio.</p>
+              </div>
+            )}
+          </div>
+        );
+      case "registro":
+        return (
+          <div>
+            <h3 className="text-4xl font-bold">Registro</h3>
+            <p className="mt-4">Aquí puedes registrar una nueva cuenta.</p>
+            {/* Subsecciones de "Registro" */}
+            <ul className="space-y-2 mt-4">
+              <li
+                className={`cursor-pointer hover:text-gray-400 ${selectedSubsection === "subregistro1" ? "text-primary" : ""}`}
+                onClick={() => setSelectedSubsection("subregistro1")}
+              >
+                Crear cuenta
+              </li>
+              <li
+                className={`cursor-pointer hover:text-gray-400 ${selectedSubsection === "subregistro2" ? "text-primary" : ""}`}
+                onClick={() => setSelectedSubsection("subregistro2")}
+              >
+                Información personal
+              </li>
+            </ul>
+            {selectedSubsection === "subregistro1" && (
+              <div className="mt-4">
+                <p>Aquí podrás registrar tu cuenta fácilmente.</p>
+              </div>
+            )}
+            {selectedSubsection === "subregistro2" && (
+              <div className="mt-4">
+                <p>Introduce tu información personal para completar el registro.</p>
+              </div>
+            )}
+          </div>
+        );
+      case "suscripciones":
+        return (
+          <div>
+            <h3 className="text-4xl font-bold">Suscripciones</h3>
+            <p className="mt-4">Administra tus suscripciones aquí.</p>
+            {/* Subsubsecciones de "Suscripciones" */}
+            <ul className="space-y-2 mt-4">
+              <li
+                className={`cursor-pointer hover:text-gray-400 ${selectedSubsection === "subsusc1" ? "text-primary" : ""}`}
+                onClick={() => setSelectedSubsection("subsusc1")}
+              >
+                Planes disponibles
+              </li>
+              <li
+                className={`cursor-pointer hover:text-gray-400 ${selectedSubsection === "subsusc2" ? "text-primary" : ""}`}
+                onClick={() => setSelectedSubsection("subsusc2")}
+              >
+                Historial de suscripciones
+              </li>
+            </ul>
+            {selectedSubsection === "subsusc1" && (
+              <div className="mt-4">
+                <p>Aquí puedes ver los planes de suscripción disponibles.</p>
+              </div>
+            )}
+            {selectedSubsection === "subsusc2" && (
+              <div className="mt-4">
+                <p>Consulta tu historial de suscripciones pasadas.</p>
+              </div>
+            )}
+          </div>
+        );
+      case "pagos":
+        return (
+          <div>
+            <h3 className="text-4xl font-bold">Métodos de Pago</h3>
+            <p className="mt-4">Configura tus métodos de pago preferidos.</p>
+            {/* Subsecciones de "Métodos de pago" */}
+            <ul className="space-y-2 mt-4">
+              <li
+                className={`cursor-pointer hover:text-gray-400 ${selectedSubsection === "subpago1" ? "text-primary" : ""}`}
+                onClick={() => setSelectedSubsection("subpago1")}
+              >
+                Agregar tarjeta
+              </li>
+              <li
+                className={`cursor-pointer hover:text-gray-400 ${selectedSubsection === "subpago2" ? "text-primary" : ""}`}
+                onClick={() => setSelectedSubsection("subpago2")}
+              >
+                Métodos de pago guardados
+              </li>
+            </ul>
+            {selectedSubsection === "subpago1" && (
+              <div className="mt-4">
+                <p>Añade una nueva tarjeta de crédito o débito aquí.</p>
+              </div>
+            )}
+            {selectedSubsection === "subpago2" && (
+              <div className="mt-4">
+                <p>Revisa los métodos de pago que ya tienes guardados.</p>
+              </div>
+            )}
+          </div>
+        );
+      default:
+        return <div>Contenido no disponible.</div>;
+    }
+  };
+
   return (
-    <div className="grid grid-cols-1 gap-y-2 bg-stone-800  overflow-hidden ">
-      <section className="relative flex flex-col justify-center items-center overflow-hidden lg:h-screen w-screen text-center">
+    <div className="grid grid-cols-1 gap-y-2 bg-stone-800 overflow-hidden">
+      <section className="relative flex flex-col lg:flex-row justify-center items-center overflow-hidden lg:h-screen w-screen text-center">
         <img
           className="absolute h-auto w-screen transform scale-110 -translate-y-10"
           src="https://assets.nflxext.com/ffe/siteui/vlv3/a73c4363-1dcd-4719-b3b1-3725418fd91d/96956889-cd58-48f4-930e-f43fad686c0d/US-es-20231016-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt=""
+          alt="Background"
         />
-        <div className="absolute top-0 right-0 bottom-0 left-0 h-screen w-screen bg-gradient-to-t from-black via-black60 to-black opacity-80" />
-        <div className="z-20 m-auto flex flex-col items-center text-white">
-          <h2 className="md:text-5xl text-2xl md:font-extrabold font-bold pb-5 mt-32 tracking-wide">
-            Películas y series ilimitadas y mucho más
-          </h2>
-          <h5 className="text-2xl pb-5 font-medium">
-            Disfruta donde quieras. Cancela cuando quieras.
-          </h5>
-          <p className="text-xl pb-5">
-            ¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o
-            reiniciar tu membresía de Netflix.
-          </p>
-          <div className="flex lg:flex-row flex-col">
-            <input
-              className="bg-stone-900 opacity-80 mr-3 lg:w-80 w-full lg:py-o py-2 lg:my-0 my-5 px-5 border-2 border-stone-400 rounded-md placeholder:text-lg"
-              placeholder="Email"
-            />
-            <button className="bg-primary text-white lg:text-2xl text-lg font-semibold flex px-4 lg:py-3 py-2 object-center justify-center items-center rounded-md">
-              Comenzar{" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 -960 960 960"
-                className="pt-1 h-9 w-9 fill-white"
-              >
-                <path d="m375-240-43-43 198-198-198-198 43-43 241 241-241 241Z" />
-              </svg>
-            </button>
+        <div className="absolute top-0 right-0 bottom-0 left-0 h-screen w-screen bg-gradient-to-t from-black via-black60 to-black opacity-50" />
+        <div className="z-20 flex flex-col lg:flex-row items-center text-white w-full lg:px-32 justify-center">
+          <div className="bg-stone-900 bg-opacity-80 p-6 rounded-lg mt-10 lg:mt-0 lg:w-1/4 w-full lg:h-auto">
+            <h3 className="text-xl font-bold mb-4">Selecciona una opción:</h3>
+            <ul className="space-y-2">
+              {options.map((option) => (
+                <li
+                  key={option}
+                  className={`cursor-pointer hover:text-gray-400 ${selectedOption === option ? "text-primary" : ""}`}
+                  onClick={() => setSelectedOption(option)}
+                >
+                  {option.charAt(0).toUpperCase() + option.slice(1)}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
-      <section className="flex lg:flex-row flex-col w-full justify-center items-center bg-black text-white lg:px-40 px-5 lg:pb-20 lg:pt-o py-20">
-        <section className="basis-1/2 text-white h-full lg:text-left text-center">
-          <h2 className="lg:text-5xl text-3xl font-extrabold pb-5 lg:mt-32 lg:px-0 px-20">
-            Disfruta en tu TV
-          </h2>
-          <h5 className="lg:text-2xl text-xl lg:pb-52">
-            Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV,
-            reproductores de Blu-ray y más.
-          </h5>
-        </section>
-        <section className="relative basis-1/2 flex flex-col">
-          {/* Imagen */}
-          <img
-            src={tv}
-            alt=""
-            className="w-full z-10"
-            // style={{ zIndex: 10 }}
-          />
-          {/* Video */}
-          <div className="absolute left-20 top-20 flex items-center justify-center">
-            <video
-              className="w-auto h-auto"
-              // style={{ zIndex: -10 }}
-              autoPlay={true}
-              muted={true}
-              loop={true}
-            >
-              <source
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-        </section>
-      </section>
-      <section className="flex lg:flex-row flex-col-reverse w-full justify-center items-center bg-black text-white lg:px-40 px-5 lg:pb-20 lg:pt-o py-20">
-        <div className="relative flex justify-center basis-1/2 ">
-          <div className="absolute bottom-0 flex flex-row border bg-black text-white rounded-lg p-3">
-            <div>
-              <img
-                className="w-14"
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png"
-                alt="poster de stranger things"
-              />
-            </div>
-            <div className="flex flex-col px-5 justify-center">
-              <span className="text-lg">Stranger Things</span>
-              <span>Descargando...</span>
-            </div>
-            <div className="flex justify-center items-center">
-              <img
-                className="w-16 h-16"
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif"
-                alt=""
-              />
-            </div>
-          </div>
-          <div>
-            <img
-              className="w-8/9 h-auto"
-              alt="imagen de demostración en movil "
-              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"
-            />
-          </div>
-        </div>
-        <div className="basis-1/2">
-          <h2 className="lg:text-6xl text-3xl font-extrabold">
-            Descarga tus series para verlas offline
-          </h2>
-          <p className="lg:text-2xl text-xl pt-4">
-            Guarda tu contenido favorito y tendrás siempre algo para ver.
-          </p>
-        </div>
-      </section>
-      <section className="flex lg:flex-row flex-col w-full bg-black text-white lg:px-40 px-5 lg:pb-20 lg:pt-o py-20">
-        <div className="basis-1/2 flex flex-col px-5 justify-center items-center">
-          <span className="lg:text-6xl text-3xl font-extrabold">
-            Disfruta donde quieras
-          </span>
-          <span className="lg:text-2xl text-xl pt-4">
-            Películas y series ilimitadas en tu teléfono, tablet, laptop y TV.
-          </span>
-        </div>
-        <div className="relative basis-1/2 flex flex-col">
-          <img
-            className="w-full h-auto z-10"
-            src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png"
-            alt="imagenes de netflix en celulares y pc"
-          />
 
-          <div className="absolute md:left-36 left-14 lg:top-8 top-14 flex items-center justify-center">
-            <video
-              className="md:w-80 w-52 h-auto"
-              autoPlay={true}
-              muted={true}
-              loop={true}
-            >
-              <source
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
-                type="video/mp4"
-              />
-            </video>
+          <div className="bg-stone-900 bg-opacity-90 p-12 rounded-lg lg:w-3/4 w-full mt-10 lg:mt-0">
+            {renderContent()}
           </div>
         </div>
       </section>
