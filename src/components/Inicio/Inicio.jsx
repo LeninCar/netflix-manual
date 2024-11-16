@@ -9,6 +9,7 @@ import { Navigation, Pagination } from "swiper/modules"; // Módulos adicionales
 import Perfiles from "../secciones/Perfiles/Perfiles";
 import MiCuenta from "../secciones/MiCuenta/MiCuenta";
 import Pagos from "../secciones/Pagos/Pagos";
+import AjustesReproduccion  from "../secciones/AjustesReproduccion/AjustesReproduccion";
 
 export function Inicio() {
   const [selectedOption, setSelectedOption] = useState("inicio");
@@ -18,7 +19,7 @@ export function Inicio() {
     "Gestiona tus perfiles",
     "Pagos",
     "Encuentra tu contenido",
-    "Disfruta tu contenido",
+    "Ajustes de reproducción",
     "Otras dudas?",
   ];
 
@@ -30,6 +31,8 @@ export function Inicio() {
         return <Perfiles />;
       case "Pagos":
         return <Pagos />;
+      case "Ajustes de reproducción":
+        return <AjustesReproduccion />;
       default:
         return <div>Contenido no disponible.</div>;
     }
@@ -47,7 +50,7 @@ export function Inicio() {
         />
         
         {/* Fondo oscuro con gradiente */}
-        <div className="absolute top-0 right-0 bottom-0 left-0 h-screen w-screen bg-gradient-to-t from-black via-black60 to-black opacity-60" />
+        <div className="absolute top-0 right-0 bottom-0 left-0 h-screen w-screen bg-gradient-to-t from-black via-black60 to-black opacity-80" />
         
         {/* Contenedor principal */}
         <div className="z-20 flex flex-col lg:flex-row items-center text-white w-full lg:px-10 justify-center space-y-6 lg:space-y-0 lg:space-x-6">
