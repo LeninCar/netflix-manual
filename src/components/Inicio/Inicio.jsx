@@ -55,7 +55,7 @@ export function Inicio() {
             </ul>
           </div>
           <div
-            className="bg-stone-900 bg-opacity-90 p-12 rounded-lg lg:w-3/4 w-full mt-10 lg:mt-0"
+            className="bg-stone-900 bg-opacity-90 rounded-lg lg:w-3/4 w-full mt-10 lg:mt-0"
             style={{ height: "500px", maxHeight: "500px", overflowY: "auto" }}
           >
             {renderContent()}
