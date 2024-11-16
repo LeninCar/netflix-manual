@@ -9,6 +9,7 @@ import { Navigation, Pagination } from "swiper/modules"; // Módulos adicionales
 import Perfiles from "../secciones/Perfiles/Perfiles";
 import MiCuenta from "../secciones/MiCuenta/MiCuenta";
 import Pagos from "../secciones/Pagos/Pagos";
+import AjustesReproduccion  from "../secciones/AjustesReproduccion/AjustesReproduccion";
 
 export function Inicio() {
   const [selectedOption, setSelectedOption] = useState("inicio");
@@ -18,7 +19,7 @@ export function Inicio() {
     "Gestiona tus perfiles",
     "Pagos",
     "Encuentra tu contenido",
-    "Disfruta tu contenido",
+    "Ajustes de reproducción",
     "Otras dudas?",
   ];
 
@@ -30,6 +31,8 @@ export function Inicio() {
         return <Perfiles />;
       case "Pagos":
         return <Pagos />;
+      case "Ajustes de reproducción":
+        return <AjustesReproduccion />;
       default:
         return <div>Contenido no disponible.</div>;
     }
