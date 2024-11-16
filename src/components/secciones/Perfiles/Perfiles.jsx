@@ -4,34 +4,30 @@ const MiCuenta = () => {
   const [selectedSubsection, setSelectedSubsection] = useState('crearPerfil');
 
   return (
-    <div>
-      <div className="flex justify-start gap-4 mb-6">
-        <button
-          className={`py-2 px-4 rounded-md ${selectedSubsection === "crearPerfil" ? "bg-black text-white" : "bg-primary text-white hover:bg-primary-dark"}`}
-          onClick={() => setSelectedSubsection("crearPerfil")}
-        >
-          Crear Perfil
-        </button>
-        <button
-          className={`py-2 px-4 rounded-md ${selectedSubsection === "eliminarPerfil" ? "bg-black text-white" : "bg-primary text-white hover:bg-primary-dark"}`}
-          onClick={() => setSelectedSubsection("eliminarPerfil")}
-        >
-          Eliminar Perfil
-        </button>
-        <button
-          className={`py-2 px-4 rounded-md ${selectedSubsection === "cambiarPerfil" ? "bg-black text-white" : "bg-primary text-white hover:bg-primary-dark"}`}
-          onClick={() => setSelectedSubsection("cambiarPerfil")}
-        >
-          Cambiar Perfil
-        </button>
-        <button
-          className={`py-2 px-4 rounded-md ${selectedSubsection === "agregarPin" ? "bg-black text-white" : "bg-primary text-white hover:bg-primary-dark"}`}
-          onClick={() => setSelectedSubsection("agregarPin")}
-        >
-          Agregar o Quitar PIN
-        </button>
-      </div>
+    <div className="relative text-white">
+      
+      <nav className="flex justify-around items-center bg-stone-900 border-b border-gray-700 sticky top-0 w-full z-10">
+        {[
+          { id: "crearPerfil", label: "Crear Perfil" },
+          { id: "eliminarPerfil", label: "Eliminar Perfil" },
+          { id: "cambiarPerfil", label: "Cambiar Perfil" },
+          { id: "agregarPin", label: "Agregar o Quitar PIN" },
+        ].map((section) => (
+          <button
+            key={section.id}
+            className={`py-4 px-6 w-full text-center ${
+              selectedSubsection === section.id
+                ? "bg-black text-primary font-bold"
+                : "bg-stone-900 hover:bg-stone-700 text-gray-300"
+            }`}
+            onClick={() => setSelectedSubsection(section.id)}
+          >
+            {section.label}
+          </button>
+        ))}
+      </nav>
 
+      <div className="p-6">
       {/* Subsection - Crear Perfil */}
       {selectedSubsection === "crearPerfil" && (
         <div className="mt-4 text-left">
@@ -67,6 +63,7 @@ const MiCuenta = () => {
           </p>
         </div>
       )}
+      </div>
     </div>
   );
 };
