@@ -105,31 +105,43 @@ export function Inicio() {
                 </ul>
               </div>
             )}
-            {selectedSubsection === "subinicio3" && (
-              <div className="mt-4">
-                <p>Beneficios de usar Netflix:</p>
-                <ul>
-                  <li>Variedad de contenido para todos los gustos.</li>
-                  <li>Posibilidad de ver desde cualquier dispositivo compatible.</li>
-                  <li>Sin comerciales.</li>
-                  <li>Ver en cualquier momento y lugar.</li>
-                </ul>
-              </div>
-            )}
-            {selectedSubsection === "subinicio4" && (
-              <div className="mt-4">
-                <p>Disfruta de un video de introducción a Netflix:</p>
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/watch?v=WNCiKqe-Jww"
-                  title="Video Introducción a Netflix"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
+           {selectedSubsection === "subinicio3" && (
+  <div className="mt-4 text-left">
+    <p className="text-lg font-medium text-white mb-4">
+      Beneficios de usar <span className="font-bold text-primary">Netflix</span>:
+    </p>
+    <ul className="list-disc pl-5 space-y-2 text-white">
+      <li>Variedad de contenido para todos los gustos.</li>
+      <li>Posibilidad de ver desde cualquier dispositivo compatible.</li>
+      <li>Sin comerciales.</li>
+      <li>Ver en cualquier momento y lugar.</li>
+    </ul>
+  </div>
+)}
+
+
+        {selectedSubsection === "subinicio4" && (
+  <div className="mt-4 text-center">
+    <p className="text-left text-lg font-medium text-white mb-4">
+      Disfruta de un video introductorio sobre <span className="font-bold text-primary">Netflix</span>:
+    </p>
+    <div className="video-container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <iframe
+        width="100%"
+        height="250"
+        src="https://www.youtube.com/embed/WNCiKqe-Jww"
+        title="Video Introducción a Netflix"
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="rounded shadow-lg"
+      ></iframe>
+    </div>
+  </div>
+)}
+
+
+
           </div>
         );
       default:
