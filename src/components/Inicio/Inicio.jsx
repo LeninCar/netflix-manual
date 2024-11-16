@@ -50,7 +50,7 @@ export function Inicio() {
         />
         
         {/* Fondo oscuro con gradiente */}
-        <div className="absolute top-0 right-0 bottom-0 left-0 h-screen w-screen bg-gradient-to-t from-black via-black60 to-black opacity-60" />
+        <div className="absolute top-0 right-0 bottom-0 left-0 h-screen w-screen bg-gradient-to-t from-black via-black60 to-black opacity-80" />
         
         {/* Contenedor principal */}
         <div className="z-20 flex flex-col lg:flex-row items-center text-white w-full lg:px-10 justify-center space-y-6 lg:space-y-0 lg:space-x-6">
