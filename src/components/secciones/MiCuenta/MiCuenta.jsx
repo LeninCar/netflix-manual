@@ -4,6 +4,8 @@ import "swiper/css"; // Estilos básicos de Swiper
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules"; // Módulos adicionales
+import crearPerfil from "../../../assets/gifs/Login.gif";
+
 
 const MiCuenta = () => {
   const [selectedSubsection, setSelectedSubsection] = useState('subinicio1');
@@ -14,9 +16,9 @@ const MiCuenta = () => {
       <nav className="flex justify-around items-center bg-stone-900 border-b border-gray-700 sticky top-0 w-full z-10">
         {[
           { id: "subinicio1", label: "Introducción" },
-          { id: "subinicio2", label: "Características" },
-          { id: "subinicio3", label: "Beneficios" },
-          { id: "subinicio4", label: "Video Introducción" },
+          { id: "subinicio2", label: "Registro" },
+          { id: "subinicio3", label: "Inicio de sesión" },
+          { id: "subinicio4", label: "Suscribete" },
         ].map((section) => (
           <button
             key={section.id}
@@ -96,20 +98,42 @@ const MiCuenta = () => {
             </ul>
           </div>
         )}
+{selectedSubsection === "subinicio3" && (
+  <div className="mt-4">
+    {/* Título centrado */}
+    <p className="text-lg font-medium text-white mb-2 text-center">
+      Guía para iniciar sesión
+    </p>
+    {/* Línea divisora blanca */}
+    <hr className="border-t-2 border-white mb-4" />
 
-        {selectedSubsection === "subinicio3" && (
-          <div className="mt-4 text-left">
-            <p className="text-lg font-medium text-white mb-4">
-              Beneficios de usar <span className="font-bold text-primary">Netflix</span>:
-            </p>
-            <ul className="list-disc pl-5 space-y-2 text-white">
-              <li>Variedad de contenido para todos los gustos.</li>
-              <li>Posibilidad de ver desde cualquier dispositivo compatible.</li>
-              <li>Sin comerciales.</li>
-              <li>Ver en cualquier momento y lugar.</li>
-            </ul>
-          </div>
-        )}
+    {/* Contenedor principal con diseño de dos columnas */}
+    <div className="flex flex-col md:flex-row items-start justify-between">
+      {/* Columna izquierda: Información */}
+      <div className="text-left md:w-1/2 space-y-4">
+        <ol className="list-decimal pl-5 space-y-2 text-white">
+          <li>Abre la aplicación de Netflix o visita <span className="font-bold text-primary">www.netflix.com</span></li>
+          <li>Haz clic en el botón <span className="font-bold">"Iniciar sesión"</span>, ubicado en la esquina superior derecha</li>
+          <li>Ingresa tu correo electrónico y contraseña registrados</li>
+          <li>Haz clic en el botón <span className="font-bold">"Iniciar sesión"</span></li>
+          <li>¡Disfruta del contenido disponible en tu cuenta!</li>
+        </ol>
+      </div>
+
+      {/* Columna derecha: GIF */}
+      <div className="flex justify-center items-center md:w-1/2 mt-4 md:mt-0">
+        <img 
+          src={crearPerfil} 
+          alt="Guía para iniciar sesión" 
+          className="w-full max-w-[500px] h-auto object-contain rounded-sm"
+        />
+      </div>
+    </div>
+  </div>
+)}
+
+
+
 
         {selectedSubsection === "subinicio4" && (
           <div className="mt-4 text-center">
