@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import crearPerfil from "../../../assets/gifs/crear_perfil.gif";
 
 const MiCuenta = () => {
   const [selectedSubsection, setSelectedSubsection] = useState('crearPerfil');
@@ -28,14 +29,27 @@ const MiCuenta = () => {
       </nav>
 
       <div className="p-6">
+        
       {/* Subsection - Crear Perfil */}
       {selectedSubsection === "crearPerfil" && (
         <div className="mt-4 text-left">
-          <p className="text-lg font-medium text-white mb-4">
+          {/* Texto explicativo */}
+          <p className="text-2xl font-medium text-white mb-6">
             Aquí puedes crear un nuevo perfil. Ingresa los detalles necesarios para configurar un nuevo perfil de usuario.
           </p>
+          
+          {/* GIF debajo del texto con tamaño mucho más grande y esquinas ligeramente redondeadas */}
+          <div className="flex justify-center mb-8">
+            <img 
+              src={crearPerfil}
+              alt="Crear Perfil"
+              className="w-full max-w-[800px] h-auto object-contain transform scale-150 rounded-sm"  // Redondeo mínimo
+            />
+          </div>
         </div>
       )}
+
+
 
       {/* Subsection - Eliminar Perfil */}
       {selectedSubsection === "eliminarPerfil" && (
