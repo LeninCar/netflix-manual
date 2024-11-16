@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css"; // Estilos básicos de Swiper
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import './inicio.css';
+import { Navigation, Pagination } from "swiper/modules"; // Módulos adicionales
 
 export function Inicio() {
   const [selectedOption, setSelectedOption] = useState("inicio");
-  const [selectedSubsection, setSelectedSubsection] = useState(null); // Corregido: Añadida la definición
-  const options = ["inicio", "registro", "suscripciones", "pagos"]; // Corregido: Añadida la definición de options
+  const [selectedSubsection, setSelectedSubsection] = useState(null);
+  const options = ["inicio", "registro", "suscripciones", "pagos"];
 
   const renderContent = () => {
     switch (selectedOption) {
@@ -12,113 +18,116 @@ export function Inicio() {
           <div>
             <div className="flex justify-start gap-4 mb-6">
               <button
-                className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark"
+                className={`py-2 px-4 rounded-md ${selectedSubsection === "subinicio1" ? "bg-black text-white" : "bg-primary text-white hover:bg-primary-dark"}`}
                 onClick={() => setSelectedSubsection("subinicio1")}
               >
                 Introducción
               </button>
               <button
-                className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark"
-                onClick={() => setSelectedSubsection("subinicio2")}
+                 className={`py-2 px-4 rounded-md ${selectedSubsection === "subinicio2" ? "bg-black text-white" : "bg-primary text-white hover:bg-primary-dark"}`}
+                 onClick={() => setSelectedSubsection("subinicio2")}
               >
                 Características
+              </button>
+              <button
+                className={`py-2 px-4 rounded-md ${selectedSubsection === "subinicio3" ? "bg-black text-white" : "bg-primary text-white hover:bg-primary-dark"}`}
+                onClick={() => setSelectedSubsection("subinicio3")}
+              >
+                Beneficios
+              </button>
+              <button
+                className={`py-2 px-4 rounded-md ${selectedSubsection === "subinicio4" ? "bg-black text-white" : "bg-primary text-white hover:bg-primary-dark"}`}
+                onClick={() => setSelectedSubsection("subinicio4")}
+              >
+                Video Introducción
               </button>
             </div>
             {selectedSubsection === "subinicio1" && (
               <div className="mt-4">
-                <p>Bienvenido a la plataforma, explora nuestras opciones.</p>
+                <p className="text-left text-lg font-medium text-white mb-4">
+                  Bienvenido a <span className="font-bold text-primary">Netflix</span>, la plataforma de streaming más popular del mundo, con una vasta biblioteca de películas, series y documentales.
+                </p>
+                {/* Carrusel de imágenes */}
+                <Swiper
+                  modules={[Navigation, Pagination]}
+                  navigation
+                  pagination={{ clickable: true }}
+                  loop={true}
+                  autoplay={{ delay: 3000 }} // Establecer el tiempo entre cada cambio de diapositiva (en milisegundos)
+                  slidesPerView={1} // Mostrar solo una imagen a la vez
+                  className="mt-6 max-w-full overflow-hidden" // Ajustar el tamaño del carrusel
+                >
+                  <SwiperSlide>
+                    <img
+                      src="/imgs/1.jpg"
+                      alt="Imagen 1"
+                      className="rounded-lg object-contain w-full h-[200px] mx-auto" // Ajustar imagen con object-contain
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img
+                      src="/imgs/2.jpg"
+                      alt="Imagen 2"
+                      className="rounded-lg object-contain w-full h-[200px] mx-auto" // Ajustar imagen con object-contain
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img
+                      src="/imgs/3.jpg"
+                      alt="Imagen 3"
+                      className="rounded-lg object-contain w-full h-[200px] mx-auto" // Ajustar imagen con object-contain
+                    />
+                  </SwiperSlide>
+                </Swiper>
               </div>
             )}
+            {/* Otras subsecciones */}
             {selectedSubsection === "subinicio2" && (
               <div className="mt-4">
-                <p>Aquí encontrarás todas las características del servicio.</p>
+                <p className="text-xl font-bold mb-4">Características clave de Netflix:</p>
+                <ul className="space-y-2 list-disc pl-6">
+                  <li className="flex items-center gap-2">
+                    <img src="/icons/hd-icon.png" alt="HD icon" className="w-6 h-6" />
+                    Acceso ilimitado a contenido en HD y 4K.
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <img src="/icons/recommendations-icon.png" alt="Recomendaciones icon" className="w-6 h-6" />
+                    Recomendaciones personalizadas.
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <img src="/icons/devices-icon.png" alt="Devices icon" className="w-6 h-6" />
+                    Ver en múltiples dispositivos.
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <img src="/icons/download-icon.png" alt="Download icon" className="w-6 h-6" />
+                    Opción de descargar contenido para verlo sin conexión.
+                  </li>
+                </ul>
               </div>
             )}
-          </div>
-        );
-      case "registro":
-        return (
-          <div>
-            <div className="flex justify-start gap-4 mb-6">
-              <button
-                className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark"
-                onClick={() => setSelectedSubsection("subregistro1")}
-              >
-                Crear Cuenta
-              </button>
-              <button
-                className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark"
-                onClick={() => setSelectedSubsection("subregistro2")}
-              >
-                Información Personal
-              </button>
-            </div>
-            {selectedSubsection === "subregistro1" && (
+            {selectedSubsection === "subinicio3" && (
               <div className="mt-4">
-                <p>Aquí podrás registrar tu cuenta fácilmente.</p>
+                <p>Beneficios de usar Netflix:</p>
+                <ul>
+                  <li>Variedad de contenido para todos los gustos.</li>
+                  <li>Posibilidad de ver desde cualquier dispositivo compatible.</li>
+                  <li>Sin comerciales.</li>
+                  <li>Ver en cualquier momento y lugar.</li>
+                </ul>
               </div>
             )}
-            {selectedSubsection === "subregistro2" && (
+            {selectedSubsection === "subinicio4" && (
               <div className="mt-4">
-                <p>Introduce tu información personal para completar el registro.</p>
-              </div>
-            )}
-          </div>
-        );
-      case "suscripciones":
-        return (
-          <div>
-            <div className="flex justify-start gap-4 mb-6">
-              <button
-                className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark"
-                onClick={() => setSelectedSubsection("subsusc1")}
-              >
-                Planes Disponibles
-              </button>
-              <button
-                className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark"
-                onClick={() => setSelectedSubsection("subsusc2")}
-              >
-                Historial de Suscripciones
-              </button>
-            </div>
-            {selectedSubsection === "subsusc1" && (
-              <div className="mt-4">
-                <p>Aquí puedes ver los planes de suscripción disponibles.</p>
-              </div>
-            )}
-            {selectedSubsection === "subsusc2" && (
-              <div className="mt-4">
-                <p>Consulta tu historial de suscripciones pasadas.</p>
-              </div>
-            )}
-          </div>
-        );
-      case "pagos":
-        return (
-          <div>
-            <div className="flex justify-start gap-4 mb-6">
-              <button
-                className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark"
-                onClick={() => setSelectedSubsection("subpago1")}
-              >
-                Agregar Tarjeta
-              </button>
-              <button
-                className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark"
-                onClick={() => setSelectedSubsection("subpago2")}
-              >
-                Métodos Guardados
-              </button>
-            </div>
-            {selectedSubsection === "subpago1" && (
-              <div className="mt-4">
-                <p>Añade una nueva tarjeta de crédito o débito aquí.</p>
-              </div>
-            )}
-            {selectedSubsection === "subpago2" && (
-              <div className="mt-4">
-                <p>Revisa los métodos de pago que ya tienes guardados.</p>
+                <p>Disfruta de un video de introducción a Netflix:</p>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/watch?v=WNCiKqe-Jww"
+                  title="Video Introducción a Netflix"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
             )}
           </div>
@@ -138,7 +147,9 @@ export function Inicio() {
         />
         <div className="absolute top-0 right-0 bottom-0 left-0 h-screen w-screen bg-gradient-to-t from-black via-black60 to-black opacity-50" />
         <div className="z-20 flex flex-col lg:flex-row items-center text-white w-full lg:px-32 justify-center">
-          <div className="bg-stone-900 bg-opacity-80 p-6 rounded-lg mt-10 lg:mt-0 lg:w-1/4 w-full lg:h-auto min-h-[400px]">
+        <div className="bg-stone-900 bg-opacity-80 p-6 rounded-lg mt-10 lg:mt-0 lg:w-1/4 w-full lg:h-auto min-h-[400px]" style={{ transform: 'translateX(-10px)' }}>
+
+
             <h3 className="text-xl font-bold mb-4">Selecciona una opción:</h3>
             <ul className="space-y-2">
               {options.map((option) => (
@@ -155,10 +166,9 @@ export function Inicio() {
               ))}
             </ul>
           </div>
-
           <div
             className="bg-stone-900 bg-opacity-90 p-12 rounded-lg lg:w-3/4 w-full mt-10 lg:mt-0"
-            style={{ height: "500px", maxHeight: "500px", overflowY: "auto" }} // Tamaño fijo con scroll
+            style={{ height: "500px", maxHeight: "500px", overflowY: "auto" }}
           >
             {renderContent()}
           </div>
@@ -167,3 +177,5 @@ export function Inicio() {
     </div>
   );
 }
+
+export default Inicio;
