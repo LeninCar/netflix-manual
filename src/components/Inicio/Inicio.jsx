@@ -41,7 +41,7 @@ export function Inicio() {
 
               {/* Imagen de Netflix centrada y más pequeña */}
               <div className="flex flex-col items-center justify-center text-center mt-6">
-                <img src={inicio} alt="Logo de Netflix" className="w-80 h-80"/>
+                <img src={inicio} alt="Logo de Netflix" className="w-90 h-90"/>
               </div>
             </div>
           </>
