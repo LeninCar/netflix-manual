@@ -7,7 +7,7 @@ import Perfiles from "../secciones/Perfiles/Perfiles";
 import MiCuenta from "../secciones/MiCuenta/MiCuenta";
 import Pagos from "../secciones/Pagos/Pagos";
 import AjustesReproduccion from "../secciones/AjustesReproduccion/AjustesReproduccion";
-import inicio from "../../assets/Inicio.jpg";
+import inicio from "../../assets/inicio.png";
 
 export function Inicio() {
   const [selectedOption, setSelectedOption] = useState("Inicio");
@@ -40,7 +40,7 @@ export function Inicio() {
               </p>
 
               {/* Imagen de Netflix centrada y más pequeña */}
-              <div className="flex flex-col items-center justify-center text-center mt-6">
+              <div className="flex flex-col items-center justify-center text-center mt-5">
                 <img src={inicio} alt="Logo de Netflix" className="w-90 h-90"/>
               </div>
             </div>
