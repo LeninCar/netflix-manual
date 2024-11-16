@@ -46,7 +46,7 @@ export function Inicio() {
                   className={`cursor-pointer hover:text-gray-400 ${selectedOption === option ? "text-primary" : ""}`}
                   onClick={() => {
                     setSelectedOption(option);
-                    setSelectedSubsection(null); // Reiniciar subsección al cambiar de sección
+                    setSelectedSubsection(null); 
                   }}
                 >
                   {option.charAt(0).toUpperCase() + option.slice(1)}
