@@ -8,6 +8,7 @@ import MiCuenta from "../secciones/MiCuenta/MiCuenta";
 import Pagos from "../secciones/Pagos/Pagos";
 import AjustesReproduccion from "../secciones/AjustesReproduccion/AjustesReproduccion";
 import inicio from "../../assets/inicio.png";
+import Contenido from "../secciones/Contenido/Contenido";
 
 export function Inicio() {
   const [selectedOption, setSelectedOption] = useState("Inicio");
@@ -55,6 +56,8 @@ export function Inicio() {
         return <Perfiles />;
       case "Pagos":
         return <Pagos />;
+      case "Encuentra tu contenido":
+        return <Contenido />;
       case "Ajustes de reproducción":
         return <AjustesReproduccion />;
       default:
