@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Estilos básicos de Swiper
 import "swiper/css/navigation";
@@ -16,7 +16,7 @@ const MiCuenta = () => {
     <div className="relative text-white font-roboto">
       {/* Navbar horizontal */}
       <nav className="flex justify-around items-center bg-stone-900 border-b border-gray-700 sticky top-0 w-full z-10">
-        {[ 
+        {[
           { id: "subinicio1", label: "Introducción" },
           { id: "subinicio2", label: "Registro" },
           { id: "subinicio3", label: "Inicio de sesión" },
@@ -36,88 +36,82 @@ const MiCuenta = () => {
       <div className="p-6">
 
         {selectedSubsection === "subinicio1" && (
-          <div className="flex flex-wrap justify-between items-center">
-            {/* Información sobre Netflix */}
-            <div className="w-full md:w-1/2 mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-white mb-2">Bienvenido a Netflix</h2>
-
-            <div className="p-5">
-  <hr className="border-t-1 border-white" />
-</div>              <ol className="list-decimal list-inside text-left space-y-4 text-lg text-gray-300">
-              La plataforma de streaming líder a nivel mundial con una vasta biblioteca de películas, series y contenido original exclusivo.
-              </ol>
-              <ol className="list-decimal list-inside text-left space-y-4 text-lg text-gray-300">
-                Disfruta de tus títulos favoritos en HD y 4K, accede a producciones galardonadas como <i>Stranger Things</i> y <i>The Crown</i>, y personaliza tu experiencia con recomendaciones inteligentes.
-              </ol>
-              <ol className="list-decimal list-inside text-left space-y-4 text-lg text-gray-300">
-                Disponible en dispositivos móviles, televisores y computadoras, Netflix transforma cómo ves entretenimiento, ofreciéndote opciones flexibles para todos los gustos.
-              </ol>
+          <div>
+            <div className="flex flex-col items-center mb-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Bienvenido a Netflix</h2>
+              <hr className="w-full border-t-2 border-gray-500" />
             </div>
-
-            {/* Contenedor del video con margen solo aplicado al video */}
-            <div className="w-full md:w-1/2 flex justify-center mt-8">
-              <div className="w-75 h-60 overflow-hidden rounded-lg shadow-lg mt-20">
+            {/* Información sobre Netflix */}
+            <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 mt-6">
+              <div className="col-span-1 lg:col-span-2 flex flex-col justify-start items-start space-y-6">
+                <div className="space-y-4 text-left text-lg text-gray-300">
+                  <p>La plataforma de streaming líder a nivel mundial con una vasta biblioteca de películas, series y contenido original exclusivo.</p>
+                  <p>Disfruta de tus títulos favoritos en HD y 4K, accede a producciones galardonadas como <i>Stranger Things</i> y <i>The Crown</i>, y personaliza tu experiencia con recomendaciones inteligentes.</p>
+                  <p>Disponible en dispositivos móviles, televisores y computadoras, Netflix transforma cómo ves entretenimiento, ofreciéndote opciones flexibles para todos los gustos.</p>
+                </div>
+              </div>
+              {/* GIF explicativo (80% de la derecha) */}
+              <div className="col-span-1 lg:col-span-8 flex justify-center items-center">
                 <video
-                  className="w-full h-full object-cover"
+                  className="rounded-lg shadow-lg w-full h-auto object-cover max-h-[740px]"
                   autoPlay={true}
                   muted={true}
                   loop={true}
                 >
-                  <source src={Intro} type="video/mp4" />
+                  <source
+                    src={Intro}
+                    type="video/mp4"
+                  />
                 </video>
               </div>
             </div>
 
             <div className="w-full md:w-full px-4">
+              <Swiper
+                modules={[Pagination]} // Solo necesitamos el módulo de paginación
+                pagination={{ clickable: true }}  // Paginación para controlar los puntos
+                autoplay={{
+                  delay: 3000, // El carrusel se moverá automáticamente cada 3 segundos
+                  disableOnInteraction: false, // Para que no se detenga cuando el usuario interactúa con el carrusel
+                }}
+                loop={true} // Hace que el carrusel sea infinito
+                slidesPerView={1}
+                className="mt-20 max-w-full overflow-hidden relative"
+              >
+                <SwiperSlide>
+                  <div className="relative group">
+                    <img
+                      src="/imgs/1.jpg"
+                      alt="Imagen de una serie popular en Netflix"
+                      className="rounded-lg object-cover w-full h-[350px] mx-auto transition-transform duration-700 ease-in-out transform group-hover:scale-105 shadow-lg group-hover:shadow-2xl"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
+                  </div>
+                </SwiperSlide>
 
-            <div className="p-3">
-  <hr className="border-t-1 border-white" />
-</div>
-  <Swiper
-    modules={[Pagination]} // Solo necesitamos el módulo de paginación
-    pagination={{ clickable: true }}  // Paginación para controlar los puntos
-    autoplay={{
-      delay: 3000, // El carrusel se moverá automáticamente cada 3 segundos
-      disableOnInteraction: false, // Para que no se detenga cuando el usuario interactúa con el carrusel
-    }}
-    loop={true} // Hace que el carrusel sea infinito
-    slidesPerView={1}
-    className="mt-20 max-w-full overflow-hidden relative"
-  >
-    <SwiperSlide>
-      <div className="relative group">
-        <img
-          src="/imgs/1.jpg"
-          alt="Imagen de una serie popular en Netflix"
-          className="rounded-lg object-cover w-full h-[350px] mx-auto transition-transform duration-700 ease-in-out transform group-hover:scale-105 shadow-lg group-hover:shadow-2xl"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
-      </div>
-    </SwiperSlide>
+                <SwiperSlide>
+                  <div className="relative group">
+                    <img
+                      src="/imgs/2.jpg"
+                      alt="Imagen de un documental exclusivo de Netflix"
+                      className="rounded-lg object-cover w-full h-[350px] mx-auto transition-transform duration-700 ease-in-out transform group-hover:scale-105 shadow-lg group-hover:shadow-2xl"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
+                  </div>
+                </SwiperSlide>
 
-    <SwiperSlide>
-      <div className="relative group">
-        <img
-          src="/imgs/2.jpg"
-          alt="Imagen de un documental exclusivo de Netflix"
-          className="rounded-lg object-cover w-full h-[350px] mx-auto transition-transform duration-700 ease-in-out transform group-hover:scale-105 shadow-lg group-hover:shadow-2xl"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
-      </div>
-    </SwiperSlide>
-
-    <SwiperSlide>
-      <div className="relative group">
-        <img
-          src="/imgs/3.jpg"
-          alt="Imagen de una película de Netflix"
-          className="rounded-lg object-cover w-full h-[350px] mx-auto transition-transform duration-700 ease-in-out transform group-hover:scale-105 shadow-lg group-hover:shadow-2xl"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
-      </div>
-    </SwiperSlide>
-  </Swiper>
-</div>
+                <SwiperSlide>
+                  <div className="relative group">
+                    <img
+                      src="/imgs/3.jpg"
+                      alt="Imagen de una película de Netflix"
+                      className="rounded-lg object-cover w-full h-[350px] mx-auto transition-transform duration-700 ease-in-out transform group-hover:scale-105 shadow-lg group-hover:shadow-2xl"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
           </div>
         )}
 
@@ -128,7 +122,7 @@ const MiCuenta = () => {
             <div className="flex flex-col md:flex-row items-start justify-between">
               <div className="text-left md:w-1/2 space-y-4">
                 <ol className="list-decimal pl-5 space-y-2 text-white">
-                  <li>Visita la página oficial: 
+                  <li>Visita la página oficial:
                     <a href="https://www.netflix.com" target="_blank" rel="noopener noreferrer" className="font-bold text-primary">
                       www.netflix.com
                     </a>
@@ -164,7 +158,7 @@ const MiCuenta = () => {
 
 
 
-                <li>Abre la aplicación de Netflix o visita:
+                  <li>Abre la aplicación de Netflix o visita:
                     <a href="https://www.netflix.com" target="_blank" rel="noopener noreferrer" className="font-bold text-primary">
                       www.netflix.com
                     </a>
@@ -186,7 +180,7 @@ const MiCuenta = () => {
 
         {selectedSubsection === "subinicio4" && (
           <div className="mt-4">
-          
+
             <h2 className="text-2xl font-bold text-white mb-2">Accede al Mejor Contenido Exclusivo en Netflix</h2>
 
             <hr className="border-t-2 border-white mb-4" />
@@ -196,15 +190,15 @@ const MiCuenta = () => {
                 <ul className="list-disc pl-5 text-white">
 
 
-                <ol className="list-decimal list-inside text-left space-y-4 text-lg text-gray-300">
-            
-                  <li>Acceso ilimitado a películas, series y documentales exclusivos.</li>
-                  <li>Contenido en 4K y HD en todos los dispositivos compatibles.</li>
-                  <li>Sin anuncios, solo entretenimiento de calidad.</li>
-                  <li>Disfruta donde quieras, cuando quieras.</li>
-                  <a href="https://www.netflix.com/signup" className="font-bold text-primary">
-                    ¡Haz clic aquí para suscribirte!
-                  </a>
+                  <ol className="list-decimal list-inside text-left space-y-4 text-lg text-gray-300">
+
+                    <li>Acceso ilimitado a películas, series y documentales exclusivos.</li>
+                    <li>Contenido en 4K y HD en todos los dispositivos compatibles.</li>
+                    <li>Sin anuncios, solo entretenimiento de calidad.</li>
+                    <li>Disfruta donde quieras, cuando quieras.</li>
+                    <a href="https://www.netflix.com/signup" className="font-bold text-primary">
+                      ¡Haz clic aquí para suscribirte!
+                    </a>
                   </ol>
                 </ul>
               </div>
