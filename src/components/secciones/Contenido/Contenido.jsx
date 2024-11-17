@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import verCategoriasSeleccionarUna from "../../../assets/videos/verCategoriasSeleccionarUna.mp4";
 
 const Contenido = () => {
   const [selectedSubsection, setSelectedSubsection] = useState('downloads');
@@ -59,11 +60,16 @@ const Contenido = () => {
         "Puedes filtrar aún más por subcategorías o géneros específicos."
       ],
       content: (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-          <div className="bg-gray-800 p-4 rounded-lg">Acción</div>
-          <div className="bg-gray-800 p-4 rounded-lg">Comedia</div>
-          <div className="bg-gray-800 p-4 rounded-lg">Drama</div>
-          <div className="bg-gray-800 p-4 rounded-lg">Documentales</div>
+        <div className="w-[85%] max-h-[500px] rounded-lg shadow-lg overflow-hidden">
+          <video
+            className="w-full h-auto"
+            autoPlay
+            muted
+            loop
+            controls
+          >
+            <source src={verCategoriasSeleccionarUna} type="video/mp4" />
+          </video>
         </div>
       )
     }
@@ -110,7 +116,7 @@ const Contenido = () => {
             </ol>
           </div>
 
-          {/* Contenido (80% de la derecha) */}
+          {/* Contenido reducido (80% de la derecha) */}
           <div className="col-span-1 lg:col-span-8 flex justify-center items-center">
             {currentSection.content}
           </div>
