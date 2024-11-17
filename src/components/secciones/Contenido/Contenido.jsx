@@ -4,6 +4,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+
+import agregarListas from "../../../assets/videos/agregarListas.mp4";
+import descargas from "../../../assets/videos/descargas.mp4";
 import verCategoriasSeleccionarUna from "../../../assets/videos/verCategoriasSeleccionarUna.mp4";
 
 const Contenido = () => {
@@ -14,25 +17,12 @@ const Contenido = () => {
       id: "downloads",
       label: "Gestión de Descargas",
       steps: [
-        "Abre la aplicación de Netflix.",
+        "Abre la aplicación de Netflix en tu dispositivo móvil o aplicación de escritorio.",
         "Accede al menú 'Mis Descargas'.",
         "Selecciona el contenido descargado que quieres gestionar.",
         "Puedes reproducir, eliminar o revisar detalles del archivo."
       ],
-      content: (
-        <Swiper modules={[Navigation, Pagination]} navigation pagination>
-          <SwiperSlide>
-            <div className="bg-gray-800 p-4 rounded-lg">
-              <p className="text-white">Título descargado 1</p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="bg-gray-800 p-4 rounded-lg">
-              <p className="text-white">Título descargado 2</p>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      )
+      video: descargas
     },
     {
       id: "favorites",
@@ -43,12 +33,7 @@ const Contenido = () => {
         "Accede a 'Mi Lista' desde el menú principal para ver tus favoritos.",
         "Puedes eliminar contenido de la lista seleccionando el ícono nuevamente."
       ],
-      content: (
-        <ul className="space-y-4 mt-4">
-          <li className="bg-gray-800 p-4 rounded-lg">Favorito 1</li>
-          <li className="bg-gray-800 p-4 rounded-lg">Favorito 2</li>
-        </ul>
-      )
+      video: agregarListas
     },
     {
       id: "categories",
@@ -59,19 +44,7 @@ const Contenido = () => {
         "Haz clic en una categoría para ver contenido relacionado.",
         "Puedes filtrar aún más por subcategorías o géneros específicos."
       ],
-      content: (
-        <div className="w-[85%] max-h-[500px] rounded-lg shadow-lg overflow-hidden">
-          <video
-            className="w-full h-auto"
-            autoPlay
-            muted
-            loop
-            controls
-          >
-            <source src={verCategoriasSeleccionarUna} type="video/mp4" />
-          </video>
-        </div>
-      )
+      video: verCategoriasSeleccionarUna
     }
   ];
 
@@ -106,8 +79,8 @@ const Contenido = () => {
 
         {/* Contenedor de pasos y contenido dinámico */}
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 mt-6">
-          {/* Lista de pasos (20% de la izquierda) */}
-          <div className="col-span-1 lg:col-span-2 flex flex-col justify-start items-start space-y-6">
+          {/* Lista de pasos (30% de la izquierda) */}
+          <div className="col-span-1 lg:col-span-3 flex flex-col justify-start items-start space-y-6">
             <p className="text-xl font-bold text-center w-full">Pasos</p>
             <ol className="list-decimal list-inside text-left space-y-4 text-lg text-gray-300">
               {currentSection.steps.map((step, index) => (
@@ -116,11 +89,46 @@ const Contenido = () => {
             </ol>
           </div>
 
-          {/* Contenido reducido (80% de la derecha) */}
-          <div className="col-span-1 lg:col-span-8 flex justify-center items-center">
-            {currentSection.content}
+          {/* Contenido reducido (70% de la derecha) */}
+          <div className="col-span-1 lg:col-span-7 flex justify-center items-center">
+            {selectedSubsection === "downloads" ? (
+              <div className="w-full max-w-[300px] mx-auto rounded-lg shadow-lg overflow-hidden">
+                <div className="relative" style={{ aspectRatio: '9/16' }}>
+                  <video
+                    className="absolute top-0 left-0 w-full h-full object-contain"
+                    autoPlay
+                    muted
+                    loop
+                    controls={false} // Sin controles visibles
+                    key={selectedSubsection}
+                  >
+                    <source src={currentSection.video} type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            ) : (
+              <div className="w-[85%] max-h-[500px] rounded-lg shadow-lg overflow-hidden">
+                <video
+                  className="w-full h-auto"
+                  autoPlay
+                  muted
+                  loop
+                  controls={false} // Sin controles visibles
+                  key={selectedSubsection}
+                >
+                  <source src={currentSection.video} type="video/mp4" />
+                </video>
+              </div>
+            )}
           </div>
         </div>
+
+        {/* Nota adicional para la sección de descargas */}
+        {selectedSubsection === "downloads" && (
+          <div className="mt-4 text-center text-gray-400 text-sm">
+            Nota: Las descargas no están disponibles en la versión de navegador.
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,19 @@
 import React from 'react';
+import centroDeAyuda from "../../../assets/videos/centroDeAyuda.mp4"; // Ruta al video
 
 const MasDudas = () => {
   const steps = [
-    "Visita el sitio web oficial de soporte de Netflix: https://help.netflix.com/",
+    <>
+      Visita el sitio web oficial de soporte de Netflix:{" "}
+      <a
+        href="https://help.netflix.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 underline hover:text-blue-300"
+      >
+        https://help.netflix.com/
+      </a>
+    </>,
     "En la barra de búsqueda, escribe tu pregunta o palabra clave relacionada con el problema que tienes.",
     "Explora los resultados proporcionados, que incluyen guías detalladas y artículos de ayuda.",
     "Si no encuentras lo que buscas, puedes contactar con el soporte técnico de Netflix desde la misma página.",
@@ -29,10 +40,18 @@ const MasDudas = () => {
           </ol>
         </div>
 
-        {/* Contenido (Espacio para el Video) */}
+        {/* Contenido (Video Explicativo) */}
         <div className="col-span-1 lg:col-span-7 flex justify-center items-center">
-          <div className="w-[85%] max-h-[500px] rounded-lg shadow-lg bg-gray-800 flex items-center justify-center">
-            <p className="text-gray-300">Espacio reservado para video explicativo</p>
+          <div className="w-[85%] max-h-[500px] rounded-lg shadow-lg overflow-hidden">
+            <video
+              className="w-full h-auto"
+              autoPlay
+              muted
+              loop
+              controls={false} // Sin controles visibles
+            >
+              <source src={centroDeAyuda} type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
