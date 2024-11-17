@@ -1,5 +1,10 @@
-.img-size {
-    width: 30px;   /* Ancho de la imagen */
-    height: auto;   /* Mantiene la proporción de la imagen */
+
+  
+  .imagen-salida {
+    width: 1100px;
+    height: 600px;
+    transition: transform 0.3s ease-out, opacity 0.3s ease;
+    transform-origin: center; /* Establece el origen de la transformación al centro */
+
   }
   

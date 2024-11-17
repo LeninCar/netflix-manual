@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./inicio.css";
+import "./inicio.css"; // Asegúrate de que el archivo CSS esté importado
 
 import Perfiles from "../secciones/Perfiles/Perfiles";
 import MiCuenta from "../secciones/MiCuenta/MiCuenta";
@@ -27,8 +27,7 @@ export function Inicio() {
       case "Inicio":
         return (
           <>
-            {/* Contenido principal */}
-            <div className="text-center p-8">
+            <div className="font-sans text-center p-8">
               <div className="flex flex-col items-center mb-6">
                 <h2 className="text-2xl font-bold text-white mb-2">Bienvenido al Manual de Usuario de Netflix</h2>
                 <hr className="w-full border-t-2 border-gray-500" />
@@ -39,13 +38,16 @@ export function Inicio() {
                 contenido favorito con facilidad!
               </p>
 
-              {/* Imagen de Netflix centrada y más pequeña */}
               <div className="flex flex-col items-center justify-center text-center mt-5">
-                <img src={inicio} alt="Logo de Netflix" className="w-90 h-90"/>
+                {/* Imagen de Netflix con animación de salida */}
+                <img
+                  src={inicio}
+                  alt="Logo de Netflix"
+                  className="imagen-salida"
+                />
               </div>
             </div>
           </>
-
         );
       case "Mi cuenta":
         return <MiCuenta />;
@@ -63,21 +65,14 @@ export function Inicio() {
   return (
     <div className="grid grid-cols-1 gap-y-2 bg-stone-800 overflow-hidden">
       <section className="relative flex flex-col lg:flex-row justify-center items-center overflow-hidden lg:h-screen w-screen text-center">
-
-        {/* Imagen de fondo */}
         <img
           className="absolute h-auto w-screen object-cover transform scale-110 -translate-y-10"
           src="https://assets.nflxext.com/ffe/siteui/vlv3/a73c4363-1dcd-4719-b3b1-3725418fd91d/96956889-cd58-48f4-930e-f43fad686c0d/US-es-20231016-popsignuptwoweeks-perspective_alpha_website_large.jpg"
           alt="Background"
         />
-
-        {/* Fondo oscuro con gradiente */}
         <div className="absolute top-0 right-0 bottom-0 left-0 h-screen w-screen bg-gradient-to-t from-black via-black60 to-black opacity-80" />
-
-        {/* Contenedor principal */}
         <div className="z-20 flex flex-col lg:flex-row items-center text-white w-full lg:px-10 justify-center space-y-6 lg:space-y-0 lg:space-x-6">
-          {/* Contenedor de opciones (alto dinámico) */}
-          <div className="bg-stone-900 bg-opacity-80  pt-3 pb-3 rounded-lg mt-10 lg:mt-0 lg:w-1/5 w-full h-auto">
+          <div className="bg-stone-900 bg-opacity-80 pt-3 pb-3 rounded-lg mt-10 lg:mt-0 lg:w-1/5 w-full h-auto">
             <ul className="w-full">
               {options.map((option, index) => (
                 <li
@@ -95,11 +90,7 @@ export function Inicio() {
             </ul>
           </div>
 
-          {/* Contenedor de contenido (ocupa más espacio) */}
-          <div
-            className="bg-stone-900 bg-opacity-90 rounded-lg lg:w-4/5 w-full mt-10 lg:mt-0"
-            style={{ height: "90vh", maxHeight: "90vh", overflowY: "auto" }}
-          >
+          <div className="bg-stone-900 bg-opacity-90 rounded-lg lg:w-4/5 w-full mt-10 lg:mt-0" style={{ height: "90vh", maxHeight: "90vh", overflowY: "auto" }}>
             {renderContent()}
           </div>
         </div>

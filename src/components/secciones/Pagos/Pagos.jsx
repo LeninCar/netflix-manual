@@ -5,7 +5,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import videoPago from "../../../assets/gif-h/pago.mp4"; // Ruta al video
 import videoPago2 from "../../../assets/gif-h/pago2.mp4"; // Ruta al video
-
 import { Navigation, Pagination } from "swiper/modules"; // Módulos adicionales
 
 const Pagos = () => {
