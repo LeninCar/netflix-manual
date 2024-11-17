@@ -8,6 +8,8 @@ import MiCuenta from "../secciones/MiCuenta/MiCuenta";
 import Pagos from "../secciones/Pagos/Pagos";
 import AjustesReproduccion from "../secciones/AjustesReproduccion/AjustesReproduccion";
 import inicio from "../../assets/inicio.png";
+import Contenido from "../secciones/Contenido/Contenido";
+import MasAyuda from "../secciones/MasAyuda/Ayuda";
 
 export function Inicio() {
   const [selectedOption, setSelectedOption] = useState("Inicio");
@@ -19,7 +21,7 @@ export function Inicio() {
     "Pagos",
     "Encuentra tu contenido",
     "Ajustes de reproducción",
-    "Otras dudas?",
+    "¿Otras dudas?",
   ];
 
   const renderContent = () => {
@@ -55,8 +57,12 @@ export function Inicio() {
         return <Perfiles />;
       case "Pagos":
         return <Pagos />;
+      case "Encuentra tu contenido":
+        return <Contenido />;
       case "Ajustes de reproducción":
         return <AjustesReproduccion />;
+      case "¿Otras dudas?":
+          return <MasAyuda />;
       default:
         return <div>Contenido no disponible.</div>;
     }
